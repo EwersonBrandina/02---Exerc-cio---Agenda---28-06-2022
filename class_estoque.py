@@ -6,20 +6,24 @@ class Estoque:
     def salvar_produtos(self):
         self.listaProdutos.append(Produto('00'+str(len(self.listaProdutos)+1),input('Nome: '),input('Fabricante: ')))
     def listar_produtos(self):
-        contador = 0
         x=input('1 - Todos.\n2 - Por Cod.\n3 - Por Nome.\n')
         if x == '1':
             self.mostrar_estoque()
         if x == '2':
             in_cod=input('Insira o código do produto.\n: ')
+            if in_cod == '':
+                self.mostrar_estoque()
+            contador = 0
             for i in range(len(self.listaProdutos)):
+                contador+=1
                 if self.listaProdutos[i].cod == in_cod:
                     print('Código: ', self.listaProdutos[i].cod,
                     'Nome: ', self.listaProdutos[i].nome,
                     'Fabricante: ', self.listaProdutos[i].fabricante,
                     'Quantidade: ', self.listaProdutos[i].quantidade)
-                else:
-                    self.mostrar_estoque()
+                    break
+                elif contador == len(self.listaProdutos):
+                    print('Código Errado!') 
         if x == '3':
             in_nome=input('Insira o nome do produto.\n: ')
             for i in range(len(self.listaProdutos)):
