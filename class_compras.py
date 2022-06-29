@@ -7,5 +7,5 @@ class Compras:
         entrada = input('Cod do Produto:  ')
         for i in range(len(self.entrada.listaProdutos)):
             if entrada == self.entrada.listaProdutos[i].cod:
-                self.entrada.listaProdutos[0].quantidade = int(input('Quantidade comprada:  '))
+                self.entrada.listaProdutos[i].quantidade += int(input('Quantidade comprada:  '))
 

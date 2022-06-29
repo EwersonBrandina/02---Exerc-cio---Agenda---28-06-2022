@@ -3,31 +3,10 @@ class Estoque:
     
     def __init__(self):
         self.listaProdutos = []
-    
     def salvar_produtos(self):
-<<<<<<< HEAD
-        self.listaProdutos.append(Produto('00'+str(len(self.listaProdutos)+1),input('Nome: '),input('Fabricante: '),input('Quantidade: ')))
-=======
-        self.listaProdutos.append(Produto(input('Código: '),input('Nome: '),input('Fabricante: '),input('Quantidade: ')))
-        if len(self.listaProdutos) > 1:
-            for i in range(len(self.listaProdutos)):
-                for a in range(1,len(self.listaProdutos)):
-                    print(self.listaProdutos[i].cod)
-                    print(self.listaProdutos[a].cod)
-                    if self.listaProdutos[i].cod == self.listaProdutos[a].cod:
-                        self.in_cod=input('Código já cadastrado, insira outro, por favor.\n:')
-                        self.listaProdutos[a].cod=self.in_cod
-                        break
-                    else:
-                        pass
-        else:
-            pass
-
-
-
-    
->>>>>>> 139c67a479f087196bed2a44924bbcc9465fcaad
+        self.listaProdutos.append(Produto('00'+str(len(self.listaProdutos)+1),input('Nome: '),input('Fabricante: ')))
     def listar_produtos(self):
+        contador = 0
         x=input('1 - Todos.\n2 - Por Cod.\n3 - Por Nome.\n')
         if x == '1':
             self.mostrar_estoque()
@@ -60,8 +39,4 @@ class Estoque:
             print('Código: ', self.listaProdutos[i].cod,
             'Nome: ', self.listaProdutos[i].nome,
             'Fabricante: ', self.listaProdutos[i].fabricante,
-<<<<<<< HEAD
             'Quantidade: ', self.listaProdutos[i].quantidade)
-=======
-            'Quantidade: ', self.listaProdutos[i].quantidade)
->>>>>>> 139c67a479f087196bed2a44924bbcc9465fcaad
