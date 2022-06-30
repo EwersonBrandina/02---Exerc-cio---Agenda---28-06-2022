@@ -38,6 +38,18 @@ class Estoque:
         for i in range(len(self.listaProdutos)):
             if self.listaProdutos[i].cod == in_cod:
                 self.listaProdutos[i].nome=input('Insira aqui o novo nome.\n: ')
+                print(self.listaProdutos[i].nome)
+    def excluir_produtos(self):
+        self.mostrar_estoque()
+        in_cod=input('Insira o código do produto.\n: ')
+        for i in range(len(self.listaProdutos)):
+            if self.listaProdutos[i].cod == in_cod:
+                self.listaProdutos.pop(i)
+                print('Produto excluido com sucesso!!!')
+                self.mostrar_estoque()
+                break
+            else:
+                pass
     def mostrar_estoque(self):
         for i in range(len(self.listaProdutos)):
             print('Código: ', self.listaProdutos[i].cod,
