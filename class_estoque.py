@@ -23,7 +23,7 @@ class Estoque:
                     'Quantidade: ', self.listaProdutos[i].quantidade)
                     break
                 elif contador == len(self.listaProdutos):
-                    print('Código Errado!') 
+                    print('Código Errado!')  
         if x == '3':
             in_nome=input('Insira o nome do produto.\n: ')
             for i in range(len(self.listaProdutos)):

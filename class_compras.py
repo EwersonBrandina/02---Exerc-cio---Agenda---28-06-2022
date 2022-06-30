@@ -1,4 +1,4 @@
-from class_estoque import*
+from class_estoque import* 
 
 class Compras:
     def __init__(self):
