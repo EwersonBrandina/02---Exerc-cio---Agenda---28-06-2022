@@ -8,4 +8,3 @@ class Vendas:
         for i in range(len(self.entrada.listaProdutos)):
             if entrada == self.entrada.listaProdutos[i].cod:
                 self.entrada.listaProdutos[i].quantidade -= int(input('Quantidade vendida:  '))
-

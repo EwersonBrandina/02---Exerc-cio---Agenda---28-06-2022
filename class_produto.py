@@ -5,4 +5,3 @@ class Produto():
         self.nome = nome
         self.fabricante = fabricante
         self.quantidade = quantidade
-

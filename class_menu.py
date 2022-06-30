@@ -24,6 +24,8 @@ class Menu():
                 compra.comprar()
             elif entrada == '5':
                 venda.vender()
+            elif entrada == '6':
+                estoque.excluir_produtos()
             elif entrada == '0':
                 print('Obrigado por acessar. Volte Sempre.')
                 break
