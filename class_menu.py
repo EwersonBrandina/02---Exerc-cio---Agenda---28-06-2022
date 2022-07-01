@@ -29,6 +29,8 @@ class Menu():
                 estoque.excluir_produtos()
             elif entrada == '9':
                 compra.extrato()
+            elif entrada == '10':
+                venda.extrato()
             elif entrada == '0':
                 print('Obrigado por acessar. Volte Sempre.')
                 break
