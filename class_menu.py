@@ -10,7 +10,7 @@ class Menu():
         venda = Vendas()
         venda.entrada = estoque
         while True:
-            entrada=input(('1 - Cadastrar Fabriante\n 2 - Listar Fabricante\n3 - Cadastrar Produto\n4 - Listar Produto\n5 - Alterar Prod..: \n6 - Comprar: \n7 - Vender\n8 - Excluir Produto\n9 - Ver Movimentações\n0 - Sair\n: '))
+            entrada=input(('1 - Cadastrar Fabriante\n 2 - Listar Fabricante\n3 - Cadastrar Produto\n4 - Listar Produto\n5 - Alterar Prod..: \n6 - Comprar: \n7 - Vender\n8 - Excluir Produto\n9 - Ver Compras\n10 - Ver Vendas\n0 - Sair\n: '))
             if entrada == '1':
                 estoque.salvar_fabricantes()
             elif entrada == '2':
