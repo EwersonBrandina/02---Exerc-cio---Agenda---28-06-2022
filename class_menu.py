@@ -10,22 +10,25 @@ class Menu():
         venda = Vendas()
         venda.entrada = estoque
         while True:
-            entrada=input(('1 - Novo Cadastro\n2 - Listar Produto\n3 - Alterar Prod..: \n4 - Comprar: \n5 - Vender\n0 - Sair\n: '))
+            entrada=input(('1 - Cadastrar Fabriante\n 2 - Listar Fabricante\n3 - Cadastrar Produto\n4 - Listar Produto\n5 - Alterar Prod..: \n6 - Comprar: \n7 - Vender\n8 - Excluir Produto\n9 - Ver Movimentações\n0 - Sair\n: '))
             if entrada == '1':
-                estoque.salvar_produtos()
-                pass
+                estoque.salvar_fabricantes()
             elif entrada == '2':
-                estoque.listar_produtos()
-                pass
+                estoque.listar_fabricantes()
             elif entrada == '3':
-                estoque.alterar_produtos()
-                pass
+                estoque.salvar_produtos()
             elif entrada == '4':
-                compra.comprar()
+                estoque.listar_produtos()
             elif entrada == '5':
-                venda.vender()
+                estoque.alterar_produtos()
             elif entrada == '6':
+                compra.comprar()
+            elif entrada == '7':
+                venda.vender()
+            elif entrada == '8':
                 estoque.excluir_produtos()
+            elif entrada == '9':
+                compra.extrato()
             elif entrada == '0':
                 print('Obrigado por acessar. Volte Sempre.')
                 break
