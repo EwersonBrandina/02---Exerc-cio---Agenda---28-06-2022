@@ -1,6 +1,6 @@
 from class_estoque import*
 from class_compras import*
-from class_vendas import* 
+from class_vendas import*
 
 class Menu():
     def __init__(self):
@@ -10,7 +10,19 @@ class Menu():
         venda = Vendas()
         venda.entrada = estoque
         while True:
-            entrada=input(('1 - Cadastrar Fabriante\n 2 - Listar Fabricante\n3 - Cadastrar Produto\n4 - Listar Produto\n5 - Alterar Prod..: \n6 - Comprar: \n7 - Vender\n8 - Excluir Produto\n9 - Ver Compras\n10 - Ver Vendas\n0 - Sair\n: '))
+            entrada=input(('1 - Cadastrar Fabriante\n'
+                           '2 - Listar Fabricante\n'
+                           '3 - Cadastrar Produto\n'
+                           '4 - Listar Produto\n'
+                           '5 - Alterar Fabricante\n'
+                           '6 - Alterar Prod.:\n'
+                           '7 - Comprar:\n'
+                           '8 - Vender\n'
+                           '9 - Excluir Fabricante'
+                           '10 - Excluir Produto\n'
+                           '11 - Ver Compras\n'
+                           '12 - Ver Vendas\n'
+                           '0 - Sair\n: '))
             if entrada == '1':
                 estoque.salvar_fabricantes()
             elif entrada == '2':
@@ -20,16 +32,20 @@ class Menu():
             elif entrada == '4':
                 estoque.listar_produtos()
             elif entrada == '5':
-                estoque.alterar_produtos()
+                estoque.alterar_fabricantes()
             elif entrada == '6':
-                compra.comprar()
+                estoque.alterar_produtos()
             elif entrada == '7':
-                venda.vender()
+                compra.comprar()
             elif entrada == '8':
-                estoque.excluir_produtos()
+                venda.vender()
             elif entrada == '9':
-                compra.extrato()
+                estoque.excluir_fabricantes()
             elif entrada == '10':
+                estoque.excluir_produtos()
+            elif entrada == '11':
+                compra.extrato()
+            elif entrada == '12':
                 venda.extrato()
             elif entrada == '0':
                 print('Obrigado por acessar. Volte Sempre.')
