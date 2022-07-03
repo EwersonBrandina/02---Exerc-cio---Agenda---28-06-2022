@@ -11,6 +11,6 @@ class Compras:
             if entrada == self.entrada.listaProdutos[i].cod:
                 x=int(input('Quantidade comprada:  '))
                 self.entrada.listaProdutos[i].quantidade += int(x)
-                self.historico.transacoes.append(f'Compra de {x} unidades')
+                self.historico.transacoes.append(f'Compra de {x} unidades do produto:', self.entrada.listaProdutos[i].nome)
     def extrato(self):
         print(self.historico.compras_vendas())
