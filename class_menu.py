@@ -18,7 +18,7 @@ class Menu():
                            '6 - Alterar Prod.:\n'
                            '7 - Comprar:\n'
                            '8 - Vender\n'
-                           '9 - Excluir Fabricante'
+                           '9 - Excluir Fabricante\n'
                            '10 - Excluir Produto\n'
                            '11 - Ver Compras\n'
                            '12 - Ver Vendas\n'
