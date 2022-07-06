@@ -1,5 +1,5 @@
-from class_fabricante import *
-from class_produto import *
+#from class_fabricante import *
+#from class_produto import *
 
 
 class Estoque:
