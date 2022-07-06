@@ -1,6 +1,5 @@
 from class_estoque import*
 from class_historico import*
-
 class Vendas:
     def __init__(self):
         self.entrada = Estoque()
