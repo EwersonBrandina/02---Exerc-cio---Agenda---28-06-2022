@@ -8,19 +8,22 @@ class Menu():
         #venda = Vendas()
         #venda.entrada = estoque
         while True:
-            entrada=input(('1 - Cadastrar Fabriante\n'
-                           '0 - Sair\n: '))
+            entrada=input(('1 - Cadastrar Fabriante\n2 - Listar Tabela\n3 - Cadastrar Produto\n0 - Sair\n: '))
             if entrada == '1':
                 cod = None
                 nome = input('Insira o nome do Fabricante\n : ') 
                 estoque.salvar_fabricantes(cod, nome)
-            #elif entrada == '2':
-            #    estoque.listar_fabricantes()
+            elif entrada == '2':
+                estoque.listar_tabelas()
+                tabela=input('Insira o nome da Tabela\n : ')
+                estoque.listar(tabela)
             elif entrada == '3':
                 cod = None
                 nome = input('Insira o nome do produto\n : ')
-                fabriante = estoque.salvar_fabricantes().comando_sql.nome
-                estoque.salvar_produtos(cod, )
+                estoque.listar('Fabricantes')
+                fabricante = input('Insira o código do fabricante\n : ')
+                quantidade = int(input('Qual a quantidade\n : '))
+                estoque.salvar_produtos(cod, nome, fabricante, quantidade)
             #elif entrada == '4':
             #    estoque.listar_produtos()
             #elif entrada == '5':
