@@ -1,5 +1,5 @@
 class Fabricante(): 
 
-    def __init__(self, cod, nome_frabricante):
+    def __init__(self, cod, nome):
         self.cod = cod
-        self.nome_frabricante = nome_frabricante
+        self.nome = nome
