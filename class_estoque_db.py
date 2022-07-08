@@ -5,7 +5,7 @@ from class_produto import Produto
 
 class Estoque:
 
-    def __init__(self):
+    def __init__(self): 
         self.conexao = mysql.connector.connect(
             host='localhost',
             user='root',

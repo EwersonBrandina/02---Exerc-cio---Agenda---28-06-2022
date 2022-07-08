@@ -1,6 +1,6 @@
 from class_estoque_db import*
 
-class Menu():
+class Menu(): 
     def __init__(self):
         estoque = Estoque()
         #compra = Compras()
