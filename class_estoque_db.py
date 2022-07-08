@@ -23,13 +23,8 @@ class Estoque:
         #self.listaFabricantes.append(Fabricante('1-' + str(len(self.listaFabricantes) + 1), input('Nome: ')))
 
     def salvar_produtos(self, cod, nome, fabricante, quantidade):
-        obj_produto = Produto(cod, nome, fabricante, quantidade)
-
-        escolha = f'select nome from Fabricantes where id = {obj_produto.fabricante}'
-        self.meu_cursor.execute(escolha)
-        lista = self.meu_cursor.fetchall()
-        
-        comando_sql = f'insert into Produtos (nome, fabricante, quantidade) value ("{obj_produto.nome}","{lista[0]}",{obj_produto.quantidade})'
+        obj_produto = Produto(cod, nome, fabricante, quantidade)    
+        comando_sql = f'insert into Produtos (nome, fabricante, quantidade) value ("Vassoura", (select nome from Fabricantes where id = 1), 50);'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 
