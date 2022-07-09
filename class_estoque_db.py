@@ -9,7 +9,7 @@ class Estoque:
         self.conexao = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='q1w2e3',
+            password='92337155Thule03@1',
             database='estoque'
         )
         self.meu_cursor = self.conexao.cursor()
@@ -20,25 +20,12 @@ class Estoque:
         comando_sql = f'insert into Fabricantes (nome) value ("{obj_fabricante.nome}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
-        #self.listaFabricantes.append(Fabricante('1-' + str(len(self.listaFabricantes) + 1), input('Nome: ')))
 
     def salvar_produtos(self, cod, nome, fabricante, quantidade):
         obj_produto = Produto(cod, nome, fabricante, quantidade)    
         comando_sql = f'insert into Produtos (nome, fabricante, quantidade) value ("Vassoura", (select nome from Fabricantes where id = 1), 50);'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
-
-        #if len(self.listaFabricantes) > 0:
-        #    self.mostrar_fabricantes()
-        #    x = input('Insira o código do fabricante de seu produto.\n: ')
-        #    print('Agora, insira os dados do produto.')
-        #    for i in range(len(self.listaFabricantes)):
-        #        if self.listaFabricantes[i].cod == x:
-        #            self.listaProdutos.append(Produto('0-' + str(len(self.listaProdutos) + 1), input('Nome: '),
-        #                                              self.listaFabricantes[i].nome_frabricante))
-        #            break
-        #else:
-        #    print('Não há Fabricante cadastrado. Cadastre-o primeiro')
 
     #Read
     def listar(self, tabela):
@@ -47,8 +34,7 @@ class Estoque:
         lista = self.meu_cursor.fetchall()
         for i in lista:
             print(i)
-        #self.mostrar_fabricantes()
-
+    #Read All Tables
     def listar_tabelas (self):
         comando_sql = f'show tables;'
         self.meu_cursor.execute(comando_sql)
