@@ -28,7 +28,7 @@ class Menu():
                 nome = input('Insira o nome do produto\n : ')
                 estoque.listar('Fabricantes')
                 fabricante = input('Insira o código do fabricante\n : ')
-                quantidade = int(input('Qual a quantidade\n : '))
+                quantidade = 0
                 estoque.salvar_produtos(cod, nome, fabricante, quantidade)
             elif entrada == '5':
                 tabela=input('Insira o nome da Tabela\n : ')
