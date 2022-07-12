@@ -5,7 +5,7 @@ from mysqlx import Row
 from class_estoque_db import *
 
 estoque = Estoque()
-opicoes = [
+opcoes = [
 'Listar Todas as Tabelas',
 'Listar Tabelas Por Nomes',
 'Cadastrar Fabriante',
@@ -31,25 +31,25 @@ root.grid_columnconfigure(0, weight=1)
 #Funções
 #Escolha de Opção no Menu
 def escolha():
-    if variable.get() == opicoes[0]: #Listar Todas as Tabelas
+    if variable.get() == opcoes[0]: #Listar Todas as Tabelas
         fr0.grid_remove(), fr1.grid(row=0, column=0)
         lb1['text']=estoque.listar_tabelas()
-    elif variable.get() == opicoes[1]: #Listar Tabelas Por Nomes
+    elif variable.get() == opcoes[1]: #Listar Tabelas Por Nomes
         fr0.grid_remove(), fr2.grid(row=0, column=0)
         lb2_0['text']=estoque.listar_tabelas()
-    elif variable.get() == opicoes[2]: #Cadastrar Fabriante
+    elif variable.get() == opcoes[2]: #Cadastrar Fabriante
         fr0.grid_remove(), fr3.grid(row=0, column=0)
-    elif variable.get() == opicoes[3]:
+    elif variable.get() == opcoes[3]:
         fr0.grid_remove(), fr4.grid(row=0, column=0)
-    elif variable.get() == opicoes[4]:
+    elif variable.get() == opcoes[4]:
         fr0.grid_remove(), fr5.grid(row=0, column=0)
-    elif variable.get() == opicoes[5]:
+    elif variable.get() == opcoes[5]:
         fr0.grid_remove(), fr6.grid(row=0, column=0)
-    elif variable.get() == opicoes[6]:
+    elif variable.get() == opcoes[6]:
         fr0.grid_remove(), fr7.grid(row=0, column=0)
-    elif variable.get() == opicoes[7]:
+    elif variable.get() == opcoes[7]:
         fr0.grid_remove(), fr8.grid(row=0, column=0)
-    elif variable.get() == opicoes[8]:
+    elif variable.get() == opcoes[8]:
         fr0.grid_remove(), fr9.grid(row=0, column=0)
 #Escolha de Qual Tabela Olhar:
 def escolha1():
@@ -67,8 +67,8 @@ fr0 = LabelFrame(root, bg= '#b05193')
 fr0.grid(row=0,column=0)
 lb0 = Label(fr0, text='Escolha Uma Opção Abaixo', font='Arial 25', fg='#18ab4e', bg='#2b2d94').grid(row=0, column=0, sticky=S)
 variable = StringVar(fr0)
-variable.set(opicoes[0])
-opc0 = OptionMenu(fr0, variable, *opicoes).grid(row=1,column=0)
+variable.set(opcoes[0])
+opc0 = OptionMenu(fr0, variable, *opcoes).grid(row=1,column=0)
 bt0 = Button(fr0, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: escolha()).grid(row=2,column=0, sticky=N)
 #Frame1 - Listar Todas as Tabelas
 fr1 = LabelFrame(root, bg= '#b05193')
