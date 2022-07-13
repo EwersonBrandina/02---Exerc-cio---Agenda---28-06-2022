@@ -1,5 +1,5 @@
 class Historico:
-    def __init__(self):
+    def __init__(self): 
         self.transacoes = []
     def compras_vendas(self):
         print('Transações: ')

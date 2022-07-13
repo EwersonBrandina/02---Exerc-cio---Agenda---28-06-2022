@@ -14,4 +14,4 @@ class Compras:
                 self.historico.transacoes.append(f'Compra de {x} unidades do produto: {self.entrada.listaProdutos[i].nome}')
                 break
     def extrato(self):
-        print(self.historico.compras_vendas())
+        print(self.historico.compras_vendas()) 
