@@ -22,6 +22,7 @@ class Estoque:
         comando_sql = f'insert into Produtos (nome, fabricante, quantidade) value ("{obj_produto.nome}", (select nome from Fabricantes where id = {obj_produto.fabricante}), {obj_produto.quantidade});'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()   
+        self.conexao.commit()
     #Read
     def listar(self, tabela):
         comando_sql = f'select * from {tabela}'

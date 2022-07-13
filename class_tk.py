@@ -1,7 +1,4 @@
-from importlib.metadata import entry_points
 from tkinter import *
-
-from mysqlx import Row
 from class_estoque_db import *
 
 estoque = Estoque()
@@ -76,6 +73,11 @@ def excluir1():
     tabela=in8_0.get()
     cod=in8_1.get()
     estoque.excluir(tabela,cod)
+    in3_0['text']=estoque.salvar_fabricantes(cod,in3_0.get())
+#Cadastro dos Produtos:
+def cadastro2():
+    cod=None
+
 #Frame0
 fr0 = LabelFrame(root, bg= '#b05193')
 fr0.grid(row=0,column=0)
@@ -97,6 +99,7 @@ lb2_1.grid(row=1, column=0)
 in2_1 = Entry(fr2, font='Arial 25', fg='#18ab4e', bg='#2b2d94')
 in2_1.grid(row=1, column=1)
 bt2_3 = Button(fr2, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [escolha1(), fr2.grid_remove(), fr2_1.grid()])
+bt2_3 = Button(fr2, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [fr2.grid_remove(), fr2_1.grid(), escolha1()])
 bt2_3.grid(row=2, column=0, columnspan=2)
 #Frame2_1 - Nomes dos Atributos da Tabela Selecionada
 fr2_1 = LabelFrame(root, bg='#b05193')
@@ -109,6 +112,7 @@ lb3_0.grid(row=0, column=0)
 in3_0 = Entry(fr3, font='Arial 25', fg='#18ab4e', bg='#2b2d94')
 in3_0.grid(row=0,column=1)
 bt3_1 = Button(fr3, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [cadastro1(), in3_0.delete(0,'end')])
+bt3_1 = Button(fr3, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [in3_0.delete(0,'end'), cadastro1()])
 bt3_1.grid(row=1, column=0, columnspan=2)
 #Frame4 - Cadastrar Produto
 fr4 = LabelFrame(root, bg= '#b05193')
@@ -142,6 +146,12 @@ in5_3 = Entry(fr5, font='Arial 25', fg='#18ab4e', bg='#2b2d94')
 in5_3.grid(row=3, column=1)
 bt5_4 = Button(fr5, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [alterar1(),in5_0.delete(0,'end'),in5_1.delete(0,'end'),in5_2.delete(0,'end'),in5_3.delete(0,'end'),in5_4.delete(0,'end')])
 bt5_4.grid(row=4, column=0, columnspan=2)
+bt4_2 = Button(fr4, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [in4_0.delete(0,'end'), in4_1.delete(0,'end'), cadastro2()])
+bt4_2.grid(row=2, column=0, columnspan=2)
+#Frame5 - Alterar Atributo da Tabela
+fr5 = LabelFrame(root, bg= '#b05193')
+lb5= Label(fr5, text='Teste5', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
+lb5.grid()
 #Frame6 - Comprar Produto
 fr6 = LabelFrame(root, bg= '#b05193')
 lb6= Label(fr6, text='Teste6', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
@@ -162,6 +172,8 @@ in8_1 = Entry(fr8, font='Arial 25', fg='#18ab4e', bg='#2b2d94')
 in8_1.grid(row=1, column=1)
 bt8_2 = Button(fr8, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [excluir1(), in8_0.delete(0,'end'),in8_1.delete(0,'end'), alterar1()])
 bt8_2.grid(row=2, column=0, columnspan=2)
+lb8= Label(fr8, text='Teste8', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
+lb8.grid()
 #Frame9 - Sair
 fr9 = LabelFrame(root, bg= '#b05193')
 lb9= Label(fr9, text='Teste9', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
