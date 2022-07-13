@@ -74,6 +74,10 @@ def excluir1():
     cod=in8_1.get()
     estoque.excluir(tabela,cod)
     in3_0['text']=estoque.salvar_fabricantes(cod,in3_0.get())
+def limpar1():
+    lb1_0['text']=''
+    lb2_0['text']=''
+    lb2_1_0['text']=''
 #Cadastro dos Produtos:
 #Frame0
 fr0 = LabelFrame(root, bg= '#b05193')
@@ -85,8 +89,10 @@ opc0 = OptionMenu(fr0, variable, *opcoes).grid(row=1,column=0)
 bt0 = Button(fr0, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: escolha()).grid(row=2,column=0, sticky=N)
 #Frame1 - Listar Todas as Tabelas
 fr1 = LabelFrame(root, bg= '#b05193')
-lb1= Label(fr1, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-lb1.grid()
+lb1_0= Label(fr1, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
+lb1_0.grid(row=0,column=1)
+bt1_1 = Button(fr1, text='Voltar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [limpar1(), fr1.grid_remove(), fr0.grid(row=0,column=0)])
+bt1_1.grid(row=1, column=0)
 #Frame2 - Listar Tabelas Por Nomes
 fr2 = LabelFrame(root, bg= '#b05193')
 lb2_0=Label(fr2, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
@@ -97,10 +103,14 @@ in2_1 = Entry(fr2, font='Arial 25', fg='#18ab4e', bg='#2b2d94')
 in2_1.grid(row=1, column=1)
 bt2_3 = Button(fr2, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [escolha1(), fr2.grid_remove(), fr2_1.grid()])
 bt2_3.grid(row=2, column=0, columnspan=2)
+bt2_4 = Button(fr2, text='Voltar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [limpar1(), fr2.grid_remove(), fr0.grid(row=0,column=0)])
+bt2_4.grid(row=3, column=0)
 #Frame2_1 - Nomes dos Atributos da Tabela Selecionada
 fr2_1 = LabelFrame(root, bg='#b05193')
 lb2_1_0=Label(fr2_1, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-lb2_1_0.grid()
+lb2_1_0.grid(row=0,column=0)
+bt2_2 = Button(fr1, text='Voltar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [limpar1(), fr2_1.grid_remove(), fr2.grid(row=0,column=0)])
+bt2_2.grid(row=1, column=0)
 #Frame3 - Cadastrar Fabriante
 fr3 = LabelFrame(root, bg= '#b05193')
 lb3_0 = Label(fr3, text='Insira o Nome do Fabricante:', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
