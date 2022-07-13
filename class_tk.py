@@ -75,9 +75,6 @@ def excluir1():
     estoque.excluir(tabela,cod)
     in3_0['text']=estoque.salvar_fabricantes(cod,in3_0.get())
 #Cadastro dos Produtos:
-def cadastro2():
-    cod=None
-
 #Frame0
 fr0 = LabelFrame(root, bg= '#b05193')
 fr0.grid(row=0,column=0)
