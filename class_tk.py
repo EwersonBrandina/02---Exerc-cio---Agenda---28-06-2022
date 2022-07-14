@@ -102,8 +102,9 @@ def escolha():
         lb2_0['text']=estoque.msg
     elif variable.get() == opcoes[2]: #Cadastrar Fabriante
         fr0.grid_remove(), fr3.grid(row=0, column=0)
-    elif variable.get() == opcoes[3]:
+    elif variable.get() == opcoes[3]: #Cadastrar Produtos
         fr0.grid_remove(), fr4.grid(row=0, column=0)
+
     elif variable.get() == opcoes[4]:
         fr0.grid_remove(), fr5.grid(row=0, column=0) #Alterar Atributos de Uma Tabela
         estoque.listar_tabelas()
@@ -197,8 +198,6 @@ bt2_3 = Button(fr2, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94
 bt2_3.grid(row=2, column=0, columnspan=2)
 bt2_4 = Button(fr2, text='Voltar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [limpar1(), in2_1.delete(0, 'end'), fr2.grid_remove(), fr0.grid(row=0,column=0)])
 bt2_4.grid(row=3, column=0, columnspan=2)
-lb2_5= Label(fr2, text='Mensagem de Confirmação', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-lb2_5.grid(row=4, column=0, columnspan=2)
 #Frame2_1 - Nomes dos Atributos da Tabela Selecionada
 fr2_1 = LabelFrame(root, bg='#b05193')
 lb2_1_0=Label(fr2_1, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
@@ -221,6 +220,8 @@ lb3_3.grid(row=3, column=0, columnspan=2)
 
 #Frame4 - Cadastrar Produto
 fr4 = LabelFrame(root, bg= '#b05193')
+lb4_0_0= Label(fr4, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
+lb4_0_0.grid(row=0, column=0)
 lb4_0= Label(fr4, text='Insira o Nome do Produto:', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
 lb4_0.grid(row=0, column=0)
 in4_0 = Entry(fr4, font='Arial 25', fg='#18ab4e', bg='#2b2d94', textvariable=var2)
@@ -279,19 +280,23 @@ lb5_5.grid(row=6, column=0, columnspan=2)
 
 #Frame8 - Excluir
 fr8 = LabelFrame(root, bg= '#b05193')
+lb8_0_0 = Label(fr8, text='', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
+lb8_0_0.grid(row=0, column=0, columnspan=2)
 lb8_0 = Label(fr8, text='Insira o Nome da Tabela:', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-lb8_0.grid(row=0, column=0)
+lb8_0.grid(row=1, column=0)
 in8_0 = Entry(fr8, font='Arial 25', fg='#18ab4e', bg='#2b2d94', textvariable=var5)
-in8_0.grid(row=0, column=1)
+in8_0.grid(row=1, column=1)
 lb8_1 = Label(fr8, text='Insira o Cod a Excluir:', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-lb8_1.grid(row=1, column=0)
+lb8_1.grid(row=2, column=0)
 in8_1 = Entry(fr8, font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-in8_1.grid(row=1, column=1)
+in8_1.grid(row=2, column=1)
 in8_1.bind('<KeyRelease>', numerico2)
-bt8_2 = Button(fr8, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [excluir1(), in8_0.delete(0,'end'),in8_1.delete(0,'end'), alterar1()])
-bt8_2.grid(row=2, column=0, columnspan=2)
+bt8_2 = Button(fr8, text='Confirmar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [excluir1(), in8_0.delete(0,'end'),in8_1.delete(0,'end')])
+bt8_2.grid(row=3, column=0, columnspan=2)
 lb8_3= Label(fr8, text='Mensagem de Confirmação', font='Arial 25', fg='#18ab4e', bg='#2b2d94')
-lb8_3.grid(row=3, column=0, columnspan=2)
+lb8_3.grid(row=4, column=0, columnspan=2)
+bt8_4 = Button(fr5, text='Voltar', font='Arial 25', fg='#18ab4e', bg='#2b2d94', command= lambda: [limpar1(), in5_0.delete(0,'end'), in5_1.delete(0,'end'), in5_2.delete(0,'end'), in5_3.delete(0,'end'), fr5.grid_remove(), fr0.grid(row=0,column=0)])
+bt8_4.grid(row=5, column=1, sticky=W)
 
 ##Frame9 - Sair
 #fr9 = LabelFrame(root, bg= '#b05193')

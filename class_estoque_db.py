@@ -8,7 +8,7 @@ class Estoque:
         self.conexao = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='q1w2e3',
+            password='92337155Thule03@1',
             database='estoque'
         )
         self.meu_cursor = self.conexao.cursor() 
@@ -80,14 +80,20 @@ class Estoque:
                     self.msg=f'Alteração realizada com sucesso:'
         else:
             self.msg=f'Tabela Inexistente'
-                    
     #Delete
     def excluir(self, tabela, cod):
         if tabela == 'Produtos' or tabela == 'Fabricantes':
+            comando_sql = f'select * from {tabela}'
+            self.meu_cursor.execute(comando_sql)
+            lista = self.meu_cursor.fetchall()
             for i in range(len(lista)):
                 cod=int(cod)
                 if cod in lista[i]:
                     comando_sql = f'delete from {tabela} where id = {cod}'
                     self.meu_cursor.execute(comando_sql)
                     self.conexao.commit()
-                    self.msg+='Exclusão Realizada'
+                    self.msg='Exclusão Realizada'
+                else:
+                    self.msg='Código Não Existente'
+        else:
+            self.msg='Tabela Não Existente'
