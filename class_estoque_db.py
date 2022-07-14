@@ -8,7 +8,7 @@ class Estoque:
         self.conexao = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='92337155Thule03@1',
+            password='q1w2e3',
             database='estoque'
         )
         self.meu_cursor = self.conexao.cursor() 
@@ -28,19 +28,16 @@ class Estoque:
     def listar(self, tabela):
         self.msg = 'Segue Lista Abaixo:'
         if tabela != 'Produtos' and tabela != 'Fabricantes':
-            print('Tabela Inexistente.')
-            self.msg += f'Tabela Inexistente'
+            self.msg += f'\nTabela Inexistente'
         else:
             comando_sql = f'select * from {tabela}'
             self.meu_cursor.execute(comando_sql)
             lista = self.meu_cursor.fetchall()
             if tabela == 'produtos' or tabela == 'Produtos':
                 for i in lista:
-                    print(i[0],i[1],i[2],i[3])
                     self.msg += f'\nCod: {i[0]}, Nome: {i[1]}, Fabr.: {i[2]}, Quant.:{i[3]}'
             elif tabela == 'fabricantes' or tabela == 'Fabricantes':
                 for i in lista:
-                    print(i[0])
                     self.msg += f'\nCod: {i[0]}, Fabr.: {i[1]}'
     #Read All Tables
     def listar_tabelas (self):
@@ -49,15 +46,48 @@ class Estoque:
         self.meu_cursor.execute(comando_sql)
         lista = self.meu_cursor.fetchall()
         for i in lista:
-            print(i[0])
             self.msg += f'\n Tabela: {i[0].title()}'
     #Update
     def alterar_tabela(self, tabela, atributo, valor, cod):
-        comando_sql = f'update {tabela} set {atributo} = "{valor}" where id = {cod}'
-        self.meu_cursor.execute(comando_sql)
-        self.conexao.commit()
+        if tabela == 'Produtos':
+            comando_sql = f'select * from {tabela}'
+            self.meu_cursor.execute(comando_sql)
+            lista = self.meu_cursor.fetchall()
+            x=f'show columns from Produtos'
+            self.meu_cursor.execute(x)
+            x = self.meu_cursor.fetchall()
+            for i in range(len(x)):
+                if atributo in x[i]:
+                    for i in range(len(lista)):
+                        cod=int(cod)
+                        if cod in lista[i]:
+                            comando_sql = f'update {tabela} set {atributo} = "{valor}" where id = {cod}'
+                            self.meu_cursor.execute(comando_sql)
+                            self.conexao.commit()
+                            self.msg=f'Alteração realizada com sucesso:'
+                            break
+                    self.msg=f'Cod Inexistente'
+            self.msg=f'Coluna Inexistente'
+        elif tabela == 'Fabricantes':
+            comando_sql = f'select * from {tabela}'
+            self.meu_cursor.execute(comando_sql)
+            lista = self.meu_cursor.fetchall()
+            if atributo in lista:
+                if cod in lista:
+                    comando_sql = f'update {tabela} set {atributo} = "{valor}" where id = {cod}'
+                    self.meu_cursor.execute(comando_sql)
+                    self.conexao.commit()
+                    self.msg=f'Alteração realizada com sucesso:'
+        else:
+            self.msg=f'Tabela Inexistente'
+                    
     #Delete
     def excluir(self, tabela, cod):
-        comando_sql = f'delete from {tabela} where id = {cod}'
-        self.meu_cursor.execute(comando_sql)
-        self.conexao.commit()
+        if tabela == 'Produtos' or tabela == 'Fabricantes':
+            for i in range(len(lista)):
+                cod=int(cod)
+                if cod in lista[i]:
+                    comando_sql = f'delete from {tabela} where id = {cod}'
+                    self.meu_cursor.execute(comando_sql)
+                    self.conexao.commit()
+                    self.msg+='Exclusão Realizada'
